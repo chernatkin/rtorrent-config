@@ -1,0 +1,34 @@
+# Location where to download temporary files
+directory = ~/rtorrent/Downloaded_Files
+
+# Folder to save & resume rtorrent sessions
+session = ~/rtorrent/Session
+
+network.port_range.set = 49164-49264
+port_random = yes
+protocol.encryption.set = require,require_RC4,allow_incoming,try_outgoing
+check_hash = yes
+use_udp_trackers = yes
+
+view.sort_current = complete,greater=d.get_up_rate=
+view.filter = seeding,"and=d.get_complete="
+view.sort_new = seeding,less=d.get_up_rate=
+view.sort = seeding
+
+# Other Settings
+upload_rate = 50
+download_rate = 10000
+peer_exchange = yes
+
+# DHT options
+dht.mode.set = auto
+dht.port.set = 6881
+protocol.pex.set= yes
+
+# rtorrent_Watch is a folder for new torrents
+schedule = watch_directory,0,10,load_start=~/rtorrent/Watch/*.torrent
+schedule = tied_directory,10,10,start_tied=
+schedule = untied_directory,10,10,close_untied=
+
+
+
